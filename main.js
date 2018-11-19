@@ -30,8 +30,9 @@ function searchFromInput(inputEL, myDict) {
 };
 
 function showResults(res) {
-    if (document.querySelector('.searched-item')) {
-        document.body.removeChild(document.querySelector('.searched-item')) 
+	var containerSearch = document.querySelector('.searched-item');
+    if (containerSearch) {
+        document.body.removeChild(containerSearch) ;
     } 
 
     if (res.length > 0) {
@@ -50,10 +51,12 @@ function showResults(res) {
 };
 
 function generateList(wrapper, items) {
+	var containerSelect = document.querySelector('.selected-item');
+	
+	if (containerSelect) {
+		document.body.removeChild(containerSelect) ;
+	} 
 
-    if (document.querySelector('.selected-item')) {
-        document.body.removeChild(document.querySelector('.selected-item')) 
-    };
     let wrapperItems = document.createElement('ul');
     wrapperItems.className = 'selected-item';
     addedItemsList = [];
